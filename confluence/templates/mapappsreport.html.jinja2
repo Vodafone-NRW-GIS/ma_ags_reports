@@ -1,0 +1,61 @@
+
+<p>Auflistung aller MapApps-Karten in den konfigurierten Umgebungen sowie der darin verwendeten Kartendienste.</p>
+
+<p class="auto-cursor-target"><br /></p><ac:structured-macro ac:name="table-filter" ac:schema-version="1" ac:macro-id="3c345ce8-4db7-41ba-9b3d-811e558fbc3e"><ac:parameter ac:name="inverse">,,false</ac:parameter><ac:parameter ac:name="sparkName">Sparkline</ac:parameter><ac:parameter ac:name="column">valid,secured</ac:parameter><ac:parameter ac:name="separator">Point (.)</ac:parameter><ac:parameter ac:name="labels">&sbquo;&sbquo;</ac:parameter><ac:parameter ac:name="default">,,</ac:parameter><ac:parameter ac:name="isFirstTimeEnter">true</ac:parameter><ac:parameter ac:name="cell-width">,,</ac:parameter><ac:parameter ac:name="datepattern">dd M yy</ac:parameter><ac:parameter ac:name="globalFilter">true</ac:parameter><ac:parameter ac:name="id">1615460029815_-107721675</ac:parameter><ac:parameter ac:name="worklog">365|5|8|y w d h m|y w d h m</ac:parameter><ac:parameter ac:name="isOR">AND</ac:parameter><ac:parameter ac:name="order">0,1,2</ac:parameter><ac:rich-text-body>
+
+<p class="auto-cursor-target"><br /></p>
+
+
+
+<table width="100%">
+<tbody>  
+
+<tr>    
+    <th>MapApps-Karte</th>
+    <th>Umgebung</th>
+    <th>App-ID</th>
+    <th>Service-ID</th>
+    <th>Service-Titel</th>
+    <th>Service-URL</th>
+    <th>Name des ArcGIS-Service</th>
+    <th>Valide?</th>
+    <th>Gesichert?</th>
+    <th>Datum</th>
+</tr>
+ {% for record in data %}
+    <tr>
+        <td>
+           {{record['app_title']}}
+        </td>
+        <td>
+           {{record['env']}}
+        </td>
+        <td>
+           {{record['app_id']}}
+        </td>
+        <td>
+           {{record['svc_id']}}
+        </td>
+        <td>
+           {{record['svc_title']}}
+        </td>
+        <td>
+           {{record['svc_url']}}
+        </td>
+        <td>
+           {{record['svc_name']}}
+        </td>
+        <td>
+           {{record['valid']}}
+        </td>
+        <td>
+           {{record['secured']}}
+        </td>
+        <td>
+           {{record['reference_date']}}
+        </td>
+    </tr>
+ {% endfor %}
+</tbody>
+</table>
+        </ac:rich-text-body></ac:structured-macro>
