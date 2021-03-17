@@ -1,0 +1,34 @@
+# arbitrary (unique) dentifier for database connection 
+reports@gis_db:
+  # arbitrary connection name/description
+  name: Schema *reports* in PostGIS
+  # database schema user
+  user: reports_user
+  # password for database schema user
+  password: secret_reports_user_pwd
+  # database port
+  port: 5432
+  # database hostname
+  host: database_host
+  # database name
+  database: gis_db
+  # SQLAlchemy API dialect (see https://docs.sqlalchemy.org/en/14/dialects/index.html)
+  api_dialect: postgresql+psycopg2
+
+mapapps@dev:
+  name: Development environment for map.apps application
+  user: mapapps_db_user
+  password: secret_mapapps_db_user_pwd
+  host: database_host
+  port: 5432
+  database: mapapps_dev_db
+  api_dialect: postgresql+psycopg2
+
+mapapps@prod:
+  name: Production environment for map.apps application
+  user: mapapps_db_user
+  password: secret_mapapps_db_user_pwd
+  host: database_host
+  port: 5432
+  database: mapapps_prod_db
+  api_dialect: postgresql+psycopg2
