@@ -16,7 +16,6 @@ def get_environment(py_src):
     configuration file.
     """
     env_src = ".".join((os.path.splitext(py_src)[0], 'env', 'yml'))
-    print(env_src)
     return read_configuration_file(env_src)
 
 
@@ -52,7 +51,6 @@ def complete_configuration(env, args):
             cfg[key] = args[key]
 
     return cfg
-
 
 
 def prepare_logging(code_file, suffix=None, screen_only=False):
