@@ -22,9 +22,6 @@ def publish_report(args):
     """
     cfg = utils.complete_configuration(ENV, args)
 
-    for key in cfg:
-        print("%s: %s" % (key, cfg[key]))
-
     cfl_cfg = cfg['cfl_cfg'][cfg['report_type']]
 
     engine = create_engine(db_utils.get_db_connection(cfg['db_cfg'], cfg['tgt_db']))
