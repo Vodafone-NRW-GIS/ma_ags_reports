@@ -303,6 +303,9 @@ def retrieve_configured_search_stores(cfg, app_json, single_app_info):
         # analyzing host name
         single_store_info['svc_env'] = None
         for svc_env in cfg['environments']:
+            # skipping environment if no ArcGIS server has been configured for it
+            if 'ags_host' not in cfg['environments'][svc_env]:
+                continue
             if 'url' in search_store and cfg['environments'][svc_env]['ags_host'] in search_store['url']:
                 single_store_info['svc_env'] = svc_env
                 break
@@ -507,6 +510,9 @@ def check_service_status(cfg, single_map):
     # retrieving all existing ags hosts first
     available_ags_hosts = set()
     for svc_env in cfg['environments']:
+        # skipping environment if no ArcGIS server has been configured for it
+        if 'ags_host' not in cfg['environments'][svc_env]:
+            continue
         available_ags_hosts.add(cfg['environments'][svc_env]['ags_host'])
         # identifying service environment for current map service
         if single_map['svc_url'] and cfg['environments'][svc_env]['ags_host'] in single_map['svc_url']:

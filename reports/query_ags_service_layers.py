@@ -54,6 +54,11 @@ def query_ags_service_layers(args):
     db_cfg_path = cfg['db_cfg']
     query_env = cfg['environments'][cfg['query_environment']]
 
+    if 'ags_host' not in query_env:
+        logging.warn(
+            "No ArcGIS server hostname specified for current query environment '%s'" % cfg['query_environment'])
+        return
+
     logging.info("Setting up connection to %s" % cfg['tgt_db'])
     tgt_conn_str = db_utils.get_db_connection(db_cfg_path, cfg['tgt_db'])
     tgt_engine = create_engine(tgt_conn_str)
